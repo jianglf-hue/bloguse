@@ -1,6 +1,6 @@
 body{
-    background: url("../images/back.jpg");
-
+    background: url("../images/back.jpg") no-repeat;
+    background-size: cover;
 }
 
 .m-padded-tb-mini{
