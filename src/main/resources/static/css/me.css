@@ -1,6 +1,9 @@
+html{
+    height:100%;
+    overflow: auto;
+}
 body{
-    background: url("../images/back.jpg") no-repeat;
-    background-size: cover;
+    background: url("../images/back.jpg") ;
 }
 
 .m-padded-tb-mini{

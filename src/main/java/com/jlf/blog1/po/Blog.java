@@ -28,6 +28,16 @@ public class Blog {
     private Date createTime;
     private Date updateTime;
 
+    private String description;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @ManyToOne
     private Type type;
 
@@ -195,9 +205,13 @@ public class Blog {
                 ", recommend=" + recommend +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", description='" + description + '\'' +
+                ", type=" + type +
+                ", tags=" + tags +
+                ", user=" + user +
+                ", comments=" + comments +
                 '}';
     }
-
-    /*public Object getTypeId() {
+/*public Object getTypeId() {
     }*/
 }

@@ -48,23 +48,23 @@
                 <div class="ui horizontal link list ">
 
                     <div class="item">
-                        <img src="../static/images/22.gif" alt="" class="ui avatar image">
-                        <div class="content"><a href="#" class="ui header">anonymous</a></div>
+                        <img src="../static/images/22.gif" th:src="@{/images/22.gif}" alt="" class="ui avatar image">
+                        <div class="content"><a href="#"  class="ui header">anonymous</a></div>
     
                     </div>
 
                     <div class="item">
-                        <i class="calendar icon"></i>  2020-10-26
+                        <i class="calendar icon" ></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}"> 2020-10-26 </span>
                     </div>
 
                     <div class="item">
-                        <i class="eye icon"></i>2354
+                        <i class="eye icon"></i><span th:text="${blog.views}"></span>
                     </div>
                 </div>
             </div>
             <!--图片区域-->
             <div class="ui attached segment">
-                <img src="../static/images/2.gif" alt="" class="ui fluid rounded image">
+                <img src="../static/images/2.gif" th:src="@{${blog.firstPicture}}" alt="" class="ui fluid rounded image">
             </div>
             <!--内容-->
             <div class="ui  attached segment padded" th:utext="${blog.content}">
@@ -112,7 +112,7 @@
                     <div class="eleven wide column">
                         <ui class="list">
                             <li>作者: 匿名 (联系作者)</li>
-                            <li>发表时间: 2020-10-28</li>
+                            <li>发表时间: <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2020-10-28</span></li>
                             <li>版权声明: 自由转载-非商用-非衍生-保持署名</li>
                             <li>公众号转载: 请在文末添加作者公众号二维码</li>
                         </ui>

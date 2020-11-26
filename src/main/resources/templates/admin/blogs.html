@@ -94,19 +94,19 @@
                     <tr th:each="blog,iterStat : ${page.content}">
                         <td th:text="${iterStat.count}">1</td>
                         <td th:text="${blog.title}">anonymous</td>
-                        <td>认知升级</td>
+                        <td th:text="${blog.type.name}">认知升级</td>
                         <td>是</td>
                         <td th:text="${blog.updateTime}">2020-10-28 22:32</td>
                         <td>
-                            <a href="#" class="ui mini teal basic button">编辑</a>
-                            <a href="#" class="ui mini red basic button">删除</a>
+                            <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}" class="ui mini teal basic button">编辑</a>
+                            <a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}" class="ui mini red basic button">删除</a>
                         </td>
                     </tr>
                     </tbody>
                     <tfoot>
                     <tr>
                         <th colspan="6">
-                            <div class="ui mini  pagination menu">
+                            <div class="ui mini  pagination menu" th:if="${page.totalPages}>1">
                                 <a th:href="@{/admin/blogs(page=${page.number}-1)}" th:unless="${page.first}" class="item">上一页</a>
                                 <a th:href="@{/admin/blogs(page=${page.number}+1)}" th:unless="${page.last}" class="item">下一页</a>
                             </div>
@@ -121,8 +121,9 @@
     </div>
         <br>  
         <br>
-        <br><br>         
-        
+        <br><br>
+    <footer th:replace="admin/_fragments :: footer" class="ui inverted  vertical segment m-padded-tb-massive">
+    </footer>
     
     
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>  <!--2.引入jqurey-->

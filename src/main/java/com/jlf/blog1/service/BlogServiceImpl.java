@@ -73,8 +73,16 @@ public class BlogServiceImpl implements BlogService{
 
     @Override
     public Blog saveBlog(Blog blog) {
-        blog.setCreateTime(new Date());
-        blog.setUpdateTime(new Date());
+        /*blog.setCreateTime(new Date());
+        blog.setUpdateTime(new Date());*/
+        if (blog.getId() == null) {
+            blog.setCreateTime(new Date());
+            blog.setUpdateTime(new Date());
+            blog.setViews(0);
+        } else {
+            //blog.setCreateTime(blog.getCreateTime());
+            blog.setUpdateTime(new Date());
+        }
         return blogRepository.save(blog);
     }
 
@@ -85,7 +93,8 @@ public class BlogServiceImpl implements BlogService{
         {
             throw new NotFoundException("该博客不存在");
         }
-        BeanUtils.copyProperties(b,blog);
+        BeanUtils.copyProperties(blog,b);
+        b.setUpdateTime(new Date());
         return blogRepository.save(b);
     }
 

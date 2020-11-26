@@ -1,6 +1,7 @@
 package com.jlf.blog1.interceptor;
 
 import org.springframework.context.annotation.Configuration;
+
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -15,3 +16,5 @@ public class WebConfig extends WebMvcConfigurerAdapter {
                 .excludePathPatterns("/admin/login");
     }
 }
+
+
